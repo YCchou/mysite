@@ -1,9 +1,14 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
+
 from .models import Post
 
 # Create your views here.
+def home(request):
+    return HttpResponseRedirect('/blog/')
+
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
