@@ -1,3 +1,7 @@
+# user define
+*.sqlite*
+static/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -7,7 +11,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-*.sqlite*
 *migration*
 .Python
 env/
