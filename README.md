@@ -1,2 +1,2 @@
 # mysite
-personal blog
+personal blog powered by Django
