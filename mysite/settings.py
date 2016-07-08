@@ -29,9 +29,9 @@ EMAIL_USE_TLS = True
 SECRET_KEY = 'mllfu74cu_@f9_k2!c+^&$hke31=j64##wb$h^af+oeo(qouqp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -107,3 +107,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
