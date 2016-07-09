@@ -1,6 +1,7 @@
 # user define
 *.sqlite*
-static/
+.DS_STORE
+/static
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

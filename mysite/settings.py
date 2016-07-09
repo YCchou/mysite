@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ooooo.io.casker@gmail.com'
 EMAIL_HOST_PASSWORD = '22.mfutEVV(nqet'
-EMAIL_PROT = 587
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
@@ -29,7 +29,7 @@ EMAIL_USE_TLS = True
 SECRET_KEY = 'mllfu74cu_@f9_k2!c+^&$hke31=j64##wb$h^af+oeo(qouqp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
