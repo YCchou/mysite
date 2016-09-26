@@ -58,7 +58,7 @@ def post_list(request, tag_slug=None):
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])
-    paginator = Paginator(object_list, 3)
+    paginator = Paginator(object_list, 10)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -87,6 +87,7 @@ def post_detail(request, year, month, day, post):
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.save()
+            return HttpResponseRedirect(request.path)
     else:
         comment_form = CommentForm()
 
