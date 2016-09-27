@@ -9,23 +9,18 @@
 <h2>Posts tagged with "{{ tag.name }}"</h2>
 {% endif %}
 {% for post in posts %}
-<h2>
-  <a href="{{ post.get_absolute_url }}">
-    {{ post.title }}
-  </a>
-</h2>
-<p class="tags">
-  Tags:
+<a href="{{ post.get_absolute_url }}" class="post">
+  {{ post.title }}
+</a>
   {% for tag in post.tags.all %}
-  <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+  <a href="{% url "blog:post_list_by_tag" tag.slug %}" class="tag">
     {{ tag.name }}
   </a>
-  {% if not forloop.last %}, {% endif %}
+  {% if not forloop.last %} {% endif %}
   {% endfor %}
-</p>
-<p class="date">
-  Published {{ post.publish }} by {{ post.author }}
-</p>
+  <span style="display:block"></span>
+  <hr/>
 {% endfor %}
 {% include "pagination.html" with page=posts %}
+<script id="dsq-count-scr" src="//oooooio.disqus.com/count.js" async></script>
 {% endblock %}
