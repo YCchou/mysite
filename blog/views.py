@@ -2,6 +2,7 @@ from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.db.models import Count
 
@@ -98,7 +99,7 @@ def post_detail(request, year, month, day, post):
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by(
         '-same_tags', '-publish')[:4]
     return render(request, 'blog/post/detail.html', {'post': post,
-                                                     'comments': comments,
-                                                     'comment_form':
-                                                     comment_form,
                                                      'similar_posts':similar_posts})
+
+def resume(request):
+    return HttpResponse('resume')
