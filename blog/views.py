@@ -101,5 +101,5 @@ def post_detail(request, year, month, day, post):
     return render(request, 'blog/post/detail.html', {'post': post,
                                                      'similar_posts':similar_posts})
 
-def resume(request):
-    return HttpResponse('resume')
+def about(request):
+    return render(request, 'blog/about.html')
