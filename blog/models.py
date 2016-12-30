@@ -35,10 +35,6 @@ class Post(models.Model):
     views = models.PositiveIntegerField('浏览量', default=0)
     likes = models.PositiveIntegerField('点赞数', default=0)
     topped = models.BooleanField('置顶', default=False)
-    category = models.ForeignKey('Category',
-                                 verbose_name='分类',
-                                 null=True,
-                                 on_delete=models.SET_NULL)
 
     class Meta:
         ordering = ('-publish', )
