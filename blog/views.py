@@ -10,8 +10,7 @@ from django.db.models import Count
 
 from taggit.models import Tag
 
-from .models import Post, Comment
-from .forms import EmailPostForm, CommentForm
+from .models import Post
 
 # Create your views here.
 
@@ -23,7 +22,7 @@ def home(request):
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
-    paginate_by = 3
+    paginate_by = 10
     template_name = 'blog/post/list.html'
 
 
