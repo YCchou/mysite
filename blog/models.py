@@ -50,12 +50,3 @@ class Post(models.Model):
         return reverse('blog:post_detail',
                        args=[self.publish.year, self.publish.strftime('%m'),
                              self.publish.strftime('%d'), self.slug])
-
-
-class Category(models.Model):
-    """
-    another table which store the information of articles
-    """
-    name = models.CharField('类名', max_length=30)
-    created = models.DateTimeField('创建时间', auto_now_add=True)
-    last_modified_time = models.DateTimeField('修改时间', auto_now=True)
