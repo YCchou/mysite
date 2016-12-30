@@ -1,4 +1,3 @@
-# coding:utf-8
 # Create your models here.
 from django.db import models
 from django.utils import timezone
@@ -20,16 +19,26 @@ class Post(models.Model):
     STATUS_CHOICES = (('draft', 'Draft'),
                       ('published', 'Published'), )
 
-    title = models.CharField(max_length=250)
+    title = models.CharField('标题', max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, related_name='blog_posts')
-    body = models.TextField()
-    publish = models.DateTimeField(default=timezone.now)
-    created = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10,
+    body = models.TextField('正文')
+    publish = models.DateTimeField('发布时间', default=timezone.now)
+    created = models.DateTimeField('创建时间', auto_now=True)
+    status = models.CharField('文章状态',
+                              max_length=10,
                               choices=STATUS_CHOICES,
                               default='draft')
     tags = TaggableManager()
+
+    summary = models.CharField('摘要', max_length=54, blank=True, null=True)
+    views = models.PositiveIntegerField('浏览量', default=0)
+    likes = models.PositiveIntegerField('点赞数', default=0)
+    topped = models.BooleanField('置顶', default=False)
+    category = models.ForeignKey('Category',
+                                 verbose_name='分类',
+                                 null=True,
+                                 on_delete=models.SET_NULL)
 
     class Meta:
         ordering = ('-publish', )
@@ -41,6 +50,15 @@ class Post(models.Model):
         return reverse('blog:post_detail',
                        args=[self.publish.year, self.publish.strftime('%m'),
                              self.publish.strftime('%d'), self.slug])
+
+
+class Category(models.Model):
+    """
+    another table which store the information of articles
+    """
+    name = models.CharField('类名', max_length=30)
+    created = models.DateTimeField('创建时间', auto_now_add=True)
+    last_modified_time = models.DateTimeField('修改时间', auto_now=True)
 
 
 class Comment(models.Model):
