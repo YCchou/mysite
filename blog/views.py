@@ -54,18 +54,6 @@ def post_detail(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
 
-    comments = post.comments.filter(active=True)
-
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.post = post
-            new_comment.save()
-            return HttpResponseRedirect(request.path)
-    else:
-        comment_form = CommentForm()
-
     # List of similar posts
     post_tags_ids = post.tags.values_list('id', flat=True)
     similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(
