@@ -31,10 +31,10 @@ class Post(models.Model):
                               default='draft')
     tags = TaggableManager()
 
-    summary = models.CharField('摘要', max_length=54, blank=True, null=True)
-    views = models.PositiveIntegerField('浏览量', default=0)
-    likes = models.PositiveIntegerField('点赞数', default=0)
-    topped = models.BooleanField('置顶', default=False)
+    #summary = models.CharField('摘要', max_length=54, blank=True, null=True)
+    #views = models.PositiveIntegerField('浏览量', default=0)
+    #likes = models.PositiveIntegerField('点赞数', default=0)
+    #topped = models.BooleanField('置顶', default=False)
 
     class Meta:
         ordering = ('-publish', )
