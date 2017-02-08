@@ -4,22 +4,25 @@
 {% block title %}Rain{% endblock %}
 
 {% block content %}
-<h1>Archive</h1>
 {% if tag %}
-<h2>Posts tagged with "{{ tag.name }}"</h2>
+    <h2>Posts tagged with "{{ tag.name }}"</h2>
 {% endif %}
 {% for post in posts %}
-<a href="{{ post.get_absolute_url }}" class="post">
-  {{ post.title }}
-</a>
-  {% for tag in post.tags.all %}
-  <a href="{% url "blog:post_list_by_tag" tag.slug %}" class="tag">
-    {{ tag.name }}
-  </a>
-  {% if not forloop.last %} {% endif %}
-  {% endfor %}
-  <span style="display:block"></span>
-  <hr/>
+    <div class="post-list">
+        <a href="{{ post.get_absolute_url }}" style="color:#4A6793">
+            {{ post.title }}
+        </a>
+    </div>
+    {% for tag in post.tags.all %}
+        <div class="post-tag">
+            <a href="{% url "blog:post_list_by_tag" tag.slug %}" class="btn btn-outline-primary btn-sm">
+                {{ tag.name }}
+            </a>
+        </div>
+        {% if not forloop.last %} {% endif %}
+    {% endfor %}
+    <span style="display:block"></span>
+    <hr/>
 {% endfor %}
 {% include "pagination.html" with page=posts %}
 <script id="dsq-count-scr" src="//oooooio.disqus.com/count.js" async></script>

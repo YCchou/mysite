@@ -5,29 +5,42 @@
   <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content/>
+    <meta name="author" content/>
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}"/>
+    <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/prism/1.2.0/themes/prism-okaidia.min.css" rel="stylesheet">
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
-    <link href="{% static "css/prism.css" %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https:////cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{% static "script/prism.js" %}"></script>
   </head>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/blog/">Rain</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/blog/about/"><span class="glyphicon glyphicon-user"></span> About me</a></li>
-        </ul>
-      </div>
-    </nav>
+<body>
     <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Rain</h3>
+      </div>
+
       {% block content %}
       {% endblock %}
-    </div>
-  </body>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
 </html>
