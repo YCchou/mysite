@@ -4,10 +4,14 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+<h2 class="blog-post-title">{{ post.title }}</h2>
+<p class="blog-post-meta">Published {{ post.publish }} by {{ post.author }}</p>
+
+<div class="blog-post">
 {{ post.body|markdown }}
-<h2>Similar posts</h2>
+</div>
+<hr/>
+<h3>Similar posts</h3>
 {% for post in similar_posts %}
 <p>
   <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
