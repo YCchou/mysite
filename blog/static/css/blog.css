@@ -1,13 +1,13 @@
 .post-list {
     display: inline-block;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .post-tag {
     display: inline;
     margin-left: 10px;
-    bottom: 5px;
+    bottom: 2px;
     position: relative;
 }
 

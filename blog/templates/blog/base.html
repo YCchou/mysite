@@ -22,10 +22,10 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link {%if "blog" in request.path %}active{% endif %}" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link {%if "about" in request.path %}active{% endif %}" href="/about">About</a>
             </li>
           </ul>
         </nav>
