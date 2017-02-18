@@ -15,11 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'ooooo.io.casker@gmail.com'
-EMAIL_HOST_PASSWORD = '22.mfutEVV(nqet'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 SITE_ID = 1
 
