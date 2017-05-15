@@ -1,7 +1,6 @@
 astroid>=1.4.6
 autoflake>=0.6.6
 backports.shutil-get-terminal-size>=1.0.0
-colorama>=0.3.7
 decorator>=4.0.10
 Django>=1.8.13
 django-grappelli>=2.8.1
@@ -25,4 +24,3 @@ wrapt>=1.10.8
 yapf>=0.10.0
 yarg>=0.1.9
 markdown>=2.6.6
-markdown2>=2.3.3 
