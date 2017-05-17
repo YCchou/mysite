@@ -4,41 +4,41 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<h2 class="blog-post-title">{{ post.title }}</h2>
-<p class="blog-post-meta">Published {{ post.publish }} by {{ post.author }}</p>
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+    <p class="blog-post-meta">Published {{ post.publish }} by {{ post.author }}</p>
 
-<div class="blog-post">
-{{ post.body|markdown }}
-</div>
-<hr/>
-<h3>Similar posts</h3>
-{% for post in similar_posts %}
-<p>
-  <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-</p>
-{% empty %}
-There are no similar posts yet.
-{% endfor %}
+    <div class="blog-post">
+        {{ post.body|markdown }}
+    </div>
+    <hr/>
+    <h3>Similar posts</h3>
+    {% for post in similar_posts %}
+        <p>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </p>
+    {% empty %}
+        There are no similar posts yet.
+    {% endfor %}
 
-<div id="disqus_thread"></div>
-<script>
+    <div id="disqus_thread"></div>
+    <script>
 
-  /**
-  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-  /*
-  var disqus_config = function () {
-  this.page.url = "{{ post.get_absolute_url }}";
-  this.page.identifier = "{ post.get_absolute_url }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-  */
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = '//oooooio.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+     /*
+        var disqus_config = function () {
+        this.page.url = "{{ post.get_absolute_url }}";
+        this.page.identifier = "{ post.get_absolute_url }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+      */
+     (function() { // DON'T EDIT BELOW THIS LINE
+         var d = document, s = d.createElement('script');
+         s.src = '//oooooio.disqus.com/embed.js';
+         s.setAttribute('data-timestamp', +new Date());
+         (d.head || d.body).appendChild(s);
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 {% endblock %}

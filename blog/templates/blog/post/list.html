@@ -4,25 +4,25 @@
 {% block title %}Rain{% endblock %}
 
 {% block content %}
-{% if tag %}
-    <h2>Posts tagged with "{{ tag.name }}"</h2>
-{% endif %}
-{% for post in posts %}
-    <div class="post-list">
-        <a href="{{ post.get_absolute_url }}">
-            {{ post.title }}
-        </a>
-    </div>
-    {% for tag in post.tags.all %}
-        <div class="post-tag">
-            <a href="{% url "blog:post_list_by_tag" tag.slug %}" class="btn btn-outline-primary btn-sm">
-                {{ tag.name }}
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+    {% for post in posts %}
+        <div class="post-list">
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
             </a>
         </div>
-        {% if not forloop.last %} {% endif %}
+        {% for tag in post.tags.all %}
+            <div class="post-tag">
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}" class="btn btn-outline-primary btn-sm">
+                    {{ tag.name }}
+                </a>
+            </div>
+            {% if not forloop.last %} {% endif %}
+        {% endfor %}
+        <span style="display:block"></span>
+        <hr/>
     {% endfor %}
-    <span style="display:block"></span>
-    <hr/>
-{% endfor %}
-{% include "pagination.html" with page=posts %}
+    {% include "pagination.html" with page=posts %}
 {% endblock %}

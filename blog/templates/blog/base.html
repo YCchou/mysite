@@ -2,44 +2,45 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}{% endblock %}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content/>
-    <meta name="author" content/>
-    <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}"/>
-    <script src="{% static "script/prism.js" %}" async></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" async></script>
-  </head>
-<body>
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link {%if "blog" in request.path %}active{% endif %}" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {%if "about" in request.path %}active{% endif %}" href="/about">About</a>
-            </li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Rain</h3>
-      </div>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content/>
+        <meta name="author" content/>
+        <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico" %}"/>
+        <script src="{% static "script/prism.js" %}" async></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" async></script>
+        <script src="//use.fontawesome.com/a4bcfd1341.js" async></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills float-right">
+                        <li class="nav-item">
+                            <a class="nav-link {%if "blog" in request.path %}active{% endif %}" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {%if "about" in request.path %}active{% endif %}" href="/about">About</a>
+                        </li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">Rain</h3>
+            </div>
 
-      {% block content %}
-      {% endblock %}
+            {% block content %}
+            {% endblock %}
 
-    </div> <!-- /container -->
+        </div> <!-- /container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static "css/blog.css" %}" rel="stylesheet">
-    <link href="{% static "css/jumbotron-narrow.css" %}" rel="stylesheet">
-</body>
+        <!-- Bootstrap core JavaScript
+             ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static "css/blog.css" %}" rel="stylesheet">
+        <link href="{% static "css/jumbotron-narrow.css" %}" rel="stylesheet">
+    </body>
 </html>
